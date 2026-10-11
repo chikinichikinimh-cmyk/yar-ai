@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>یار هوشمند</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">ی</div><div><b>یار هوشمند</b><small>دستیار فارسی همه‌کاره</small></div></div>
+    <button class="newchat" onclick="newChat()">＋ گفت‌وگوی جدید</button>
+    <div class="side-title">حالت دستیار</div>
+    <select id="mode">
+      <option value="auto">✨ خودکار</option>
+      <option value="general">💬 عمومی</option>
+      <option value="medical">🩺 سلامت</option>
+      <option value="research">🔎 تحقیق</option>
+      <option value="coding">💻 برنامه‌نویسی</option>
+      <option value="finance">📈 مالی</option>
+      <option value="writing">✍️ نویسندگی</option>
+    </select>
+    <label class="toggle"><input id="webSearch" type="checkbox" checked><span></span> جست‌وجوی وب</label>
+    <div class="memory-box">
+      <div class="side-title">حافظه</div>
+      <button onclick="saveMemory()">+ ذخیره در حافظه</button>
+      <div id="memoryList"></div>
+    </div>
+    <div class="side-note">کلید API فقط روی سرور نگهداری می‌شود.</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><b>سلام 👋</b><span>هر چیزی می‌خواهی بپرس.</span></div>
+      <button class="icon" onclick="toggleSidebar()">☰</button>
+    </header>
+    <section id="chat" class="chat">
+      <div class="welcome">
+        <div class="welcome-logo">✨</div>
+        <h1>چطور می‌تونم کمکت کنم؟</h1>
+        <p>می‌تونم تحقیق کنم، فایل بخونم، کدنویسی کنم، اطلاعات سلامت را توضیح بدم و خیلی بیشتر.</p>
+        <div class="cards">
+          <button onclick="quick('یک برنامه روزانه کاربردی برای من طراحی کن')">📅 برنامه‌ریزی</button>
+          <button onclick="quick('آخرین اطلاعات مهم امروز را با منابع معتبر بررسی کن')">🌐 تحقیق وب</button>
+          <button onclick="quick('یک ایده کسب‌وکار آنلاین با تحلیل مزایا و ریسک‌ها بده')">💡 ایده</button>
+          <button onclick="quick('یک مفهوم سخت را خیلی ساده و مرحله‌ای آموزش بده')">🎓 آموزش</button>
+        </div>
+      </div>
+    </section>
+    <form id="composer" class="composer">
+      <div id="attachment"></div>
+      <textarea id="message" rows="1" placeholder="پیامت را بنویس..." autocomplete="off"></textarea>
+      <div class="composer-bottom">
+        <label class="filebtn">📎 فایل<input id="file" type="file" hidden></label>
+        <button type="button" class="mic" id="mic">🎙️</button>
+        <span class="hint">Enter ارسال · Shift+Enter خط جدید</span>
+        <button class="send" type="submit">ارسال ↑</button>
+      </div>
+    </form>
+  </main>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
